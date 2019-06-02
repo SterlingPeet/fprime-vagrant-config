@@ -1,0 +1,48 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # https://docs.vagrantup.com.
+
+  # Plain vanilla ubuntu 18.04
+  config.vm.box = "ubuntu/bionic64"
+
+  # This requires the vagrant-disksize add-on, we want a few more GBs
+  # for the compilation cruft than the standard 10.
+  config.disksize.size = '16GB'
+
+  # Make some folders syncronized between the host and guest
+  config.vm.synced_folder ".", "/home/vagrant/config"
+  config.vm.synced_folder "./wheels", "/wheels"
+  config.vm.synced_folder "deb-archive", "/var/cache/apt/archives/"
+  config.vm.synced_folder "../fprime", "/home/vagrant/fprime"
+  # config.vm.synced_folder "../tools", "/opt/tools/rpi"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = "4"
+  end
+
+  $default_provision = <<-SCRIPT
+    apt-get update
+    apt-get -y upgrade
+    apt-get -y install time pkg-config g++ tcsh python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl libc6-i386 python-pil.imagetk gtk+-3.0 libgstreamer-plugins-base1.0-dev
+    apt-get -y install python-pathlib2
+    /usr/bin/pip2 install --upgrade pip
+    pip2 install wxpython
+    apt-get -y install python-wxgtk3.0
+    apt-get -y install xterm cmake
+    apt-get -y install cmake-curses-gui
+  SCRIPT
+
+  # with the whl files
+    # pip2 install path/to/pathlib2.whl
+    # pip2 install path/to/wxpython.whl
+
+  # Applies the necessary system configurations
+  config.vm.provision "shell", inline: $default_provision
+
+  # Provide X forwarding by default
+  config.ssh.forward_x11 = true
+
+end
