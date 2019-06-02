@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     apt-get -y install time pkg-config g++ tcsh python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl libc6-i386 python-pil.imagetk gtk+-3.0 libgstreamer-plugins-base1.0-dev
     apt-get -y install python-pathlib2
     /usr/bin/pip2 install --upgrade pip
-    pip2 install wxpython
+    pip2 install /wheels/wxPython-4.0.6-cp27-cp27mu-linux_x86_64.whl
     apt-get -y install python-wxgtk3.0
     apt-get -y install xterm cmake
     apt-get -y install cmake-curses-gui
