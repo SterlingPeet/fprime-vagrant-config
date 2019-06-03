@@ -1,3 +1,6 @@
+# Cached debian packages
+deb-archive-*/*
+
 # Vagrant files
 .vagrant
 Vagrantfile

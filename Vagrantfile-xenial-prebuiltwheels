@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # Make some folders syncronized between the host and guest
   config.vm.synced_folder ".", "/home/vagrant/config"
   config.vm.synced_folder "./wheels-xenial", "/wheels"
-  config.vm.synced_folder "deb-archive", "/var/cache/apt/archives/"
+  config.vm.synced_folder "deb-archive-xenial", "/var/cache/apt/archives/"
   config.vm.synced_folder "../fprime", "/home/vagrant/fprime"
 
   config.vm.provider "virtualbox" do |vb|
