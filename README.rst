@@ -142,7 +142,7 @@ Here we use ``cmake`` in the standard way, and then start the ``Gds`` GUI to int
     vagrant@ubuntu-xenial:~/src/fprime/Ref$ cd build
     vagrant@ubuntu-xenial:~/src/fprime/Ref/build $ cmake ..
     vagrant@ubuntu-xenial:~/src/fprime/Ref/build $ make
-    ./bin/Linux/Ref
+    vagrant@ubuntu-xenial:~/src/fprime/Ref/build $ ./bin/Linux/Ref
 
 Now that the ``Ref`` software is running, open a new terminal window to log in and run the Gds.
 This will require an X server running on the host system; installing the X server
