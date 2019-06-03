@@ -18,7 +18,7 @@ Getting Started Tutorial
 ------------------------
 
 This repository is designed to help make it easy to get a development environment set up for working with F Prime.
-The assumptions are that you will use Oracle's VirtualBox for the VM tool and hassio's Vagrant to manage the VM images.
+The assumptions are that you will use Oracle's VirtualBox_ for the VM tool and HashiCorp's Vagrant_ to manage the VM images.
 
 16.04 Xenial Workarounds Handled by This Config
 -----------------------------------------------
@@ -36,10 +36,13 @@ and now everything appears to work correctly in python land.
 
 An additional detail is that the mk/os-pkg/ubuntu-packages.sh script is very helpful,
 but didn’t quite get all the required packages to compile with cmake and runs the Gds GUI.
-The following two packages cannot be assumed to be available, and maybe should be added to this list:
+The following two packages cannot be assumed to be available, and maybe should be added to this list::
 
     xterm
     cmake
 
 Also helpful for editing cmake settings and debugging: cmake-curses-gui which provides the ccmake tool.
 It can be used in place of cmake, directly.
+
+.. _VirtualBox: https://www.virtualbox.org/wiki/Downloads
+.. _Vagrant: https://www.vagrantup.com/downloads.html
