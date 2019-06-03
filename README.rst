@@ -20,10 +20,10 @@ Getting Started Tutorial
 ------------------------
 
 This repository is designed to help make it easy to get a development environment set up for working with F Prime.
-The assumptions are that you will use Oracle's VirtualBox_ for the VM tool and HashiCorp's Vagrant_ to manage the VM images.
+The assumptions are that you will use Oracle's `VirtualBox`_ for the VM tool and HashiCorp's `Vagrant`_ to manage the VM images.
 
-- VirtualBox_ Download Page: https://www.virtualbox.org/wiki/Downloads
-- Vagrant_ Download Page: https://www.vagrantup.com/downloads.html
+- `VirtualBox`_ Download Page: https://www.virtualbox.org/wiki/Downloads
+- `Vagrant`_ Download Page: https://www.vagrantup.com/downloads.html
 
 Folder Structure
 ^^^^^^^^^^^^^^^^
@@ -67,8 +67,35 @@ other_folder_you_want_synced
   This could be the ``build`` folder for your ``cmake`` output, if desired.
 
 
-16.04 Xenial Workarounds Handled by This Config
------------------------------------------------
+Choosing Your Vagrantfile
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This project has several options available for how to go about developing on F Prime.
+The first part is just to tell you it is a ``Vagrantfile``.
+The provided Vagrantfiles have three-part names, where the second part denotes
+the VM OS, such as ``xenial`` for Ubuntu 16.04, Xenial Xerus.
+The third part hints at the provisioning strategy for the VM.
+
+If you are the pedantic sort of person who wants to download and compile everything
+from source yourself, then you should choose a file that ends with ``-vanilla``.
+If you don't want to wait 5-ever for things to compile and just want a working
+system (and trust that didn't do anything nasty to the prebuilt python wheels);
+then you should pick the ``-prebuiltwheels`` file.
+
+From within the base folder of **this** repository, you can copy the Vagrantfile you chose::
+
+    cp Vagrantfile-xenial-prebuiltwheels Vagrantfile
+
+Or my preference on unix sytems; symbolically link it::
+
+    ln -s Vagrantfile-xenial-prebuiltwheels Vagrantfile
+
+At this point, you may be interested in what exactly is going on within the ``Vagrantfile``.
+That is totally cool, skip down to the `How This Config Works`_ section and read about it.
+
+
+How This Config Works
+---------------------
 
 Somewhere along the way, running Gds/wxgui/tools/gds.py requires wx version 4+.
 This is not available from the ubuntu package manager for 16.04, which is fine because we can use pip to install it.
