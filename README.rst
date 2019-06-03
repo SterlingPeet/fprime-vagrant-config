@@ -3,6 +3,20 @@ F Prime Development Via Vagrant VMs
 
 Tutorial and Configuration for developing `F Prime`_ FSW projects in a VM.
 
+NOTE
+""""
+
+This repository uses `git-lfs`_ for GitHub.
+If you use GitHub's git client, you may already have it installed, if not then you should install it.
+Once that is installed, run this to install the hooks in your local git repo::
+
+    git lfs install
+
+After you clone into the repository, you need to convert (smudge) the file pointers
+to transform them to the actual files you need::
+
+    git lfs checkout
+
 
 Quick Start
 -----------
@@ -149,3 +163,4 @@ It can be used in place of ``cmake``, directly.
 .. _VirtualBox: https://www.virtualbox.org/wiki/Downloads
 .. _Vagrant: https://www.vagrantup.com/downloads.html
 .. _`Rpi Toolchain`: https://github.com/raspberrypi/tools
+.. _git-lfs: https://git-lfs.github.com/
