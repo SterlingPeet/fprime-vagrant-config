@@ -131,6 +131,34 @@ Now you just have to log in and use the VM::
 
     $ vagrant ssh
 
+Using the VM
+^^^^^^^^^^^^
+
+As a sanity check, we can compile the ``Ref`` application to run locally on the linux VM.
+Here we use ``cmake`` in the standard way, and then start the ``Gds`` GUI to interact with ``Ref``::
+
+    vagrant@ubuntu-xenial:~$ cd ~/src/fprime/Ref
+    vagrant@ubuntu-xenial:~/src/fprime/Ref$ mkdir build
+    vagrant@ubuntu-xenial:~/src/fprime/Ref$ cd build
+    vagrant@ubuntu-xenial:~/src/fprime/Ref/build $ cmake ..
+    vagrant@ubuntu-xenial:~/src/fprime/Ref/build $ make
+    ./bin/Linux/Ref
+
+Now that the ``Ref`` software is running, open a new terminal window to log in and run the Gds.
+This will require an X server running on the host system; installing the X server
+is beyond the scope of this tutorial.
+Start by navigating to the ``fprime-devel/fprime-vagrant-devel`` folder and run this:
+
+    $ vagrant ssh
+    vagrant@ubuntu-xenial:~$ ./src/fprime/Ref/scripts/run_ref_gds.sh
+
+NOTE:
+  If you don't have an X server, you can launch the VM in a visual mode, and invoke the
+  ``run_ref_gds.sh`` script from within the VM window.  This is also beyond the scope of
+  this tutorial.
+
+Once the Gds is running, send a ``CMD_NO_OP`` command to see if the system is working.
+
 
 How This Config Works
 ---------------------
