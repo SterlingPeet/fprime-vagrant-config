@@ -12,6 +12,11 @@ Tutorial and Configuration for developing F Prime FSW projects in a VM.
 6. Run `vagrant ssh`
 7. Develop on F Prime
 
+## Getting Started Tutorial
+
+This repository is designed to help make it easy to get a development environment set up for working with F Prime.
+The assumptions are that you will use Oracle's VirtualBox for the VM tool and hassio's Vagrant to manage the VM images.
+
 ## 16.04 Xenial Workarounds Handled by This Config
 
 Somewhere along the way, running Gds/wxgui/tools/gds.py requires wx version 4+.
