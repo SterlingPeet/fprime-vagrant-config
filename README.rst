@@ -22,8 +22,8 @@ Getting Started Tutorial
 This repository is designed to help make it easy to get a development environment set up for working with F Prime.
 The assumptions are that you will use Oracle's VirtualBox_ for the VM tool and HashiCorp's Vagrant_ to manage the VM images.
 
- - VirtualBox_ Download Page: https://www.virtualbox.org/wiki/Downloads
- - Vagrant_ Download Page: https://www.vagrantup.com/downloads.html
+- VirtualBox_ Download Page: https://www.virtualbox.org/wiki/Downloads
+- Vagrant_ Download Page: https://www.vagrantup.com/downloads.html
 
 Folder Structure
 ^^^^^^^^^^^^^^^^
@@ -45,7 +45,7 @@ fprime-devel
   so understand that messing with system cache folders may have unintended consequences.
 
 fprime
-  This is your "F Prime"_ source, either from the NASA public git, or your own fork.
+  This is your `F Prime`_ source, either from the NASA public git, or your own fork.
   You can safely make edits and changes within this folder.
 
 fprime-vagrant-config
