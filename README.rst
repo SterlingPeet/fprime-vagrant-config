@@ -1,7 +1,7 @@
 F Prime Development Via Vagrant VMs
 ===================================
 
-Tutorial and Configuration for developing "F Prime"_ FSW projects in a VM.
+Tutorial and Configuration for developing `"F Prime"`_ FSW projects in a VM.
 
 
 Quick Start
@@ -13,7 +13,7 @@ Quick Start
 4. Clone into your F Prime repo in a folder adjacent to this one
 5. Run ``vagrant up``
 6. Run ``vagrant ssh``
-7. Develop on "F Prime"_
+7. Develop on `"F Prime"`_
 
 
 Getting Started Tutorial
@@ -28,7 +28,7 @@ The assumptions are that you will use Oracle's VirtualBox_ for the VM tool and H
 Folder Structure
 ^^^^^^^^^^^^^^^^
 
-The following directory layout is recommended for your host computer when developing an "F Prime"_ project with this repository::
+The following directory layout is recommended for your host computer when developing an `"F Prime"`_ project with this repository::
 
     fprime-devel
         |-- fprime
@@ -57,7 +57,7 @@ fprime-vagrant-config
   Start with one, and more advanced usage will come with time.
 
 tools
-  This folder is expected to be the "Rpi toolchain"_ mentioned in the Rpi tutorial.
+  This folder is expected to be the `"Rpi toolchain"`_ mentioned in the Rpi tutorial.
   The folder must exist, but only needs to contain that repository if you intend to
   cross-compile for Rpi.
   If not, you can just create the empty folder.
