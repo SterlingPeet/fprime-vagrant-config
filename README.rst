@@ -94,6 +94,25 @@ At this point, you may be interested in what exactly is going on within the ``Va
 That is totally cool, skip down to the `How This Config Works`_ section and read about it.
 
 
+Creating Development VM
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that the ``Vagrantfile`` exists, bring up the VM::
+
+    $ vagrant up
+
+This may take a long time if you are using a ``-vanilla`` variant, or if it is the first
+time that the ``vagrant up`` command has been run.
+If you are on a sloooow internet connection (e.g.: at a hotel during a seminar), you
+may see significant improvement by using the *sneakernet*, aka: a thumb drive to borrow
+the download cache from your neighbor.
+Subsequent VMs should be much less time consuming to create (unless you chose the ``-vanilla`` variant).
+
+Now you just have to log in and use the VM::
+
+    $ vagrant ssh
+
+
 How This Config Works
 ---------------------
 
