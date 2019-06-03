@@ -93,6 +93,11 @@ Or my preference on unix sytems; symbolically link it::
 At this point, you may be interested in what exactly is going on within the ``Vagrantfile``.
 That is totally cool, skip down to the `How This Config Works`_ section and read about it.
 
+All of the Vagrantfiles require a plugin to resize the disk.
+This is easy, just run::
+
+    vagrant plugin install vagrant-disksize
+
 
 Creating Development VM
 ^^^^^^^^^^^^^^^^^^^^^^^
