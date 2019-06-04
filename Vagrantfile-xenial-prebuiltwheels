@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "..", "/home/vagrant/src"
   config.vm.synced_folder "./wheels-xenial", "/wheels"
   config.vm.synced_folder "./deb-archive-xenial", "/var/cache/apt/archives/"
-  config.vm.synced_folder "../tools", "/opt/tools/rpi"
+  config.vm.synced_folder "../tools", "/opt/tools/rpi/tools"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
