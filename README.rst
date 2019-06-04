@@ -39,6 +39,9 @@ The assumptions are that you will use Oracle's `VirtualBox`_ for the VM tool and
 - `VirtualBox`_ Download Page: https://www.virtualbox.org/wiki/Downloads
 - `Vagrant`_ Download Page: https://www.vagrantup.com/downloads.html
 
+NOTE:
+  You will need to install the `Guest Additions`_ for `VirtualBox`_ as well as the `VirtualBox`_ itself.
+
 Folder Structure
 ^^^^^^^^^^^^^^^^
 
@@ -111,6 +114,11 @@ All of the Vagrantfiles require a plugin to resize the disk.
 This is easy, just run::
 
     vagrant plugin install vagrant-disksize
+
+While adding plugins to Vagrant, go ahead and install the ``vagrant-vbguest``
+plugin, which will fix mismatches betweent the host and guest compatibility packages::
+
+     vagrant plugin install vagrant-vbguest
 
 
 Creating Development VM
@@ -190,5 +198,6 @@ It can be used in place of ``cmake``, directly.
 .. _`F Prime`: https://github.com/nasa/fprime
 .. _VirtualBox: https://www.virtualbox.org/wiki/Downloads
 .. _Vagrant: https://www.vagrantup.com/downloads.html
+.. _`Guest Additions`: https://www.virtualbox.org/wiki/Downloads
 .. _`Rpi Toolchain`: https://github.com/raspberrypi/tools
 .. _git-lfs: https://git-lfs.github.com/
