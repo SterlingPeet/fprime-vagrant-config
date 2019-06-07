@@ -15,6 +15,7 @@ Once that is installed, run this to install the hooks in your local git repo::
 After you clone into the repository, you need to convert (smudge) the file pointers
 to transform them to the actual files you need::
 
+    git lfs fetch
     git lfs checkout
 
 
