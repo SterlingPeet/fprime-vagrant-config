@@ -23,7 +23,12 @@ Vagrant.configure("2") do |config|
   $default_provision = <<-SCRIPT
     apt-get update
     apt-get -y upgrade
-    apt-get -y install time pkg-config g++ tcsh python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl libc6-i386 python-pil.imagetk gtk+-3.0 libgstreamer-plugins-base1.0-dev
+    apt-get -y install time pkg-config g++ tcsh libc6-i386 python-pil.imagetk gtk+-3.0 libgstreamer-plugins-base1.0-dev
+    apt-get -y install python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl
+    apt-get -y install python3-venv
+    apt-get -y install python3-six python3-lxml python3-markdown python3-pytest python3-pexpect
+    apt-get -y install python3-flask python3-flask-restful python3-openpyxl
+    apt-get -y install firefox
     /usr/bin/pip2 install --upgrade pip
     pip2 install pathlib2
     pip2 install wxpython
