@@ -9,7 +9,8 @@ Vagrant.configure("2") do |config|
 
   # This requires the vagrant-disksize add-on, we want a few more GBs
   # for the compilation cruft than the standard 10.
-  config.disksize.size = '16GB'
+  # Seems this is not needed for modern vagrant, as the standard is now 40GB
+  # config.disksize.size = '16GB'
 
   # This port forward allows running the GS GUI from the host web browser
   config.vm.network "forwarded_port", guest:5000, host:5000
@@ -25,14 +26,27 @@ Vagrant.configure("2") do |config|
     vb.cpus = "4"
   end
 
-  $default_provision = <<-SCRIPT
+  # This script installs SublimeText and SublimeMerge tools.  If you do not
+  #  want those tools, comment the line below COMMENT SUBLIME HERE.
+  $sublime_provision_script = <<-SCRIPT
+    echo "Get SublimeText and SublimeMerge git tools, comment out the next 3 lines if you do not want it"
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
+    apt-get -y install apt-transport-https
+    echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
+    apt-get update
+    apt-get -y install sublime-text sublime-merge
+  SCRIPT
+  # COMMENT OUT SUBLIME HERE:
+  config.vm.provision "shell", inline: $sublime_provision_script
+
+  $root_provision_script = <<-SCRIPT
     apt-get update
     apt-get -y upgrade
     apt-get -y install time pkg-config g++ tcsh libc6-i386 python-pil.imagetk gtk+-3.0 libgstreamer-plugins-base1.0-dev
     apt-get -y install python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl
     apt-get -y install python-pathlib2
-    apt-get -y install python3-venv
-    apt-get -y install python3-six python3-lxml python3-markdown python3-pytest python3-pexpect python3-pip
+    apt-get -y install python3-venv python3-pip
+    apt-get -y install python3-six python3-lxml python3-markdown python3-pytest python3-pexpect
     apt-get -y install python3-flask python3-flask-restful python3-openpyxl
     apt-get -y install firefox
     /usr/bin/pip2 install --upgrade pip
@@ -40,16 +54,28 @@ Vagrant.configure("2") do |config|
     apt-get -y install python-wxgtk3.0
     apt-get -y install xterm cmake
     apt-get -y install cmake-curses-gui
-    pip3 install Cheetah3
-    pip3 install setuptools_scm
   SCRIPT
 
-  # with the whl files
-    # pip2 install path/to/pathlib2.whl
-    # pip2 install path/to/wxpython.whl
-
   # Applies the necessary system configurations
-  config.vm.provision "shell", inline: $default_provision
+  config.vm.provision "shell", inline: $root_provision_script
+
+  $user_provision_script = <<-SCRIPT
+    pip3 install --user Cheetah3
+    pip3 install --user setuptools_scm
+    PATH="$HOME/.local/bin:$PATH"
+    python3 -m venv ./fprime-venv
+    . ./fprime-venv/bin/activate
+    pip install fprime-tools fprime-gds
+    echo "source $HOME/fprime-venv/bin/activate" >> $HOME/.profile
+    cd ~
+    git clone https://github.com/SterlingPeet/python-fprime-extras.git
+    cd python-fprime-extras
+    git checkout devel
+    pip install -e .
+  SCRIPT
+
+  # Applies user level convienence configurations
+  config.vm.provision "shell", inline: $user_provision_script, privileged: false
 
   # Provide X forwarding by default
   config.ssh.forward_x11 = true
