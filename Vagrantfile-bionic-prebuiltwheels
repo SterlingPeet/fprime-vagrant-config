@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     apt-get -y install python-pip python-dev python-lxml python-tk python-cheetah python-enum34 python-markdown python-pexpect python-pmw python-numpy python-scipy python-matplotlib python-pycurl
     apt-get -y install python-pathlib2
     apt-get -y install python3-venv
-    apt-get -y install python3-six python3-lxml python3-markdown python3-pytest python3-pexpect
+    apt-get -y install python3-six python3-lxml python3-markdown python3-pytest python3-pexpect python3-pip
     apt-get -y install python3-flask python3-flask-restful python3-openpyxl
     apt-get -y install firefox
     /usr/bin/pip2 install --upgrade pip
@@ -42,6 +42,8 @@ Vagrant.configure("2") do |config|
     apt-get -y install python-wxgtk3.0
     apt-get -y install xterm cmake
     apt-get -y install cmake-curses-gui
+    pip3 install Cheetah3
+    pip3 install setuptools_scm
   SCRIPT
 
   # with the whl files
